@@ -23,7 +23,24 @@ module.exports = function (grunt) {
 
     // Define the configuration for all the tasks
     grunt.initConfig({
-
+	    ember_handlebars: {
+	      options: {
+	          processName: function(filePath) {
+	            var shortFilePath = filePath.replace(/templates\//, '').replace('.hbs', '');
+	            return shortFilePath;
+	          },
+	          processPartialName: function(filePath) {
+	            var shortFilePath = filePath.replace(/templates\//, '').replace('.hbs', '');
+	            return shortFilePath;
+	          }
+	      },
+	      compile: {
+	        files: {
+	          'templates.js': 'templates/**/*.hbs'
+	        }
+	      }
+	    },
+	    
         // Project settings
         config: config,
 
@@ -319,6 +336,7 @@ module.exports = function (grunt) {
         }
     });
 
+	grunt.loadNpmTasks('grunt-ember-handlebars');
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
@@ -371,6 +389,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'newer:jshint',
         'test',
-        'build'
+        'build',
+        'ember_handlebars'
     ]);
 };
