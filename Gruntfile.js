@@ -26,17 +26,17 @@ module.exports = function (grunt) {
 	    ember_handlebars: {
 	      options: {
 	          processName: function(filePath) {
-	            var shortFilePath = filePath.replace(/templates\//, '').replace('.hbs', '');
+	            var shortFilePath = filePath.replace(/app\/scripts\/templates\//, '').replace('.hbs', '');
 	            return shortFilePath;
 	          },
 	          processPartialName: function(filePath) {
-	            var shortFilePath = filePath.replace(/templates\//, '').replace('.hbs', '');
+	            var shortFilePath = filePath.replace(/app\/scripts\/templates\//, '').replace('.hbs', '');
 	            return shortFilePath;
 	          }
 	      },
 	      compile: {
 	        files: {
-	          'templates.js': 'templates/**/*.hbs'
+	          'app/scripts/templates.js': 'app/scripts/templates/**/*.hbs'
 	        }
 	      }
 	    },
