@@ -77,7 +77,11 @@ module.exports = function (grunt) {
                     '.tmp/styles/{,*/}*.css',
                     '<%= config.app %>/images/{,*/}*'
                 ]
-            }
+            },
+            ember_handlebars: {
+		        files: 'app/scripts/templates/**/*.hbs',
+		        tasks: ['ember_handlebars']
+	      	}
         },
 
         // The actual grunt server settings
@@ -336,6 +340,7 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-ember-handlebars');
 
     grunt.registerTask('serve', function (target) {
