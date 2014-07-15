@@ -342,6 +342,7 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-ember-handlebars');
+	grunt.loadNpmTasks('grunt-bower-install');
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
